@@ -1,1 +1,10 @@
+Linux commands - (ls)
 
+
+1.ls
+Description: List files and directories in the current directory (non-hidden).
+Remark: Does not show hidden files (those starting with .).
+
+2. ls- a
+Description: Lists all files, including hidden files (starting with .).
+Remark: Useful for checking hidden files.
