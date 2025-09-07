@@ -1,10 +1,173 @@
 Linux commands - (ls)
 
 
-1.ls
+*ls
 Description: List files and directories in the current directory (non-hidden).
-Remark: Does not show hidden files (those starting with .).
+Remark: Does not show hidden files (those starting with .).*
+
+1. ls --help
+Description: List information about the FILEs (the current directory by default).
+Remark: Useful for beginners or when you need a refresher on less commonly used options.
+
+Options:
+  -a, --all                  do not ignore entries starting with .
+  -A, --almost-all           do not list implied . and ..
 
 2. ls- a
 Description: Lists all files, including hidden files (starting with .).
 Remark: Useful for checking hidden files.
+
+$ ls -a
+.  ..  .bashrc  .git  .hidden_file  Documents  Downloads  file.txt  script.sh
+
+3. ls -A
+Description: Lists all entries in a directory except for the special entries . (current directory) and .. (parent directory).
+Remark:It's a cleaner alternative to ls -a when navigating hidden files.
+
+4. ls -b
+Description: Display directory contents while escaping special characters in file names using backslash notation.
+Remark: Helpful when filenames contain non-printable characters, spaces, tabs, or symbols.
+
+5. ls -B
+Description:lists the contents of a directory excluding backup files
+Remark:to avoid clutter from temporary or backup files
+
+6. ls -c
+Description: Sort by and show the last status change time
+Remark: Useful for tracking changes like permission updates
+
+7. ls -C
+Description: Display entries in columns
+Remark: Good for compact, human-readable output
+
+8. ls -d
+Description: Show directory names only, not their contents.
+Remark:Essential when you want to list a directory itself, not what's inside it.
+
+9. ls -D
+Description:
+Remark:
+
+10. ls -f
+Description: List all files without sorting, includes . and ...
+Remark: Faster for large directories or scripting
+
+11 .ls -F
+Description: Append a symbol to entries: / for dirs, * for executables
+Remark: Very helpful for visually distinguishing file types at a glance.
+
+12. ls -g
+Description: Like -l, but omit the owner and show only group.
+Remark: Useful in multi-user environments where only group info is relevant.
+
+13. ls -G 
+Description: Enable colorized output
+Remark: Helps differentiate file types
+
+14. ls -h
+Description: With -l, print human-readable file sizes
+Remark: Makes size information easier to read than raw byte
+
+15. ls -H
+Description: Follow symbolic links on the command line only
+Remark: Useful when you want the actual target info
+
+16. ls -i
+Description: Show inode numbers for each file
+Remark: Helps identify hard links
+
+17. ls -I
+Description: Ignore files matching the given pattern
+Remark: Handy for hiding clutter like temporary or backup files without deleting them.
+
+18. ls -k
+Description: Show file sizes in kilobytes
+Remark: Standardizes size output
+
+19. ls -l
+Description: Long listing format: shows permissions, owner, size, date
+Remark: most used options for detailed file info.
+
+20. ls -L
+Description: Follow all symbolic link
+Remark: Useful when working with symlinked directories or files
+
+21. ls -m
+Description: List entries separated by commas.
+Remark: Useful for compact, one-line display
+
+22. ls -n
+Description: Like -l, but show numeric user and group IDs instead of names.
+Remark: Helpful for system admins debugging permission
+
+23. ls -N
+Description: Do not escape special characters in filenames.
+Remark: Good for viewing exact file names as-is
+
+24. ls -o
+Description: Like -l, but omit group information
+Remark: Useful when only owner info matters
+
+25. ls -p
+Description: Append a / to directory names.
+Remark: Handy for quickly distinguishing directories from files in plain listings.
+
+26. ls -q
+Description: Show non-printable characters as ? in filenames
+Remark: Avoids terminal issues caused by unprintable or corrupt filenames.
+
+27. ls -Q
+Description: Enclose file names in double quotes.
+Remark: Makes filenames with spaces or special characters
+
+28. ls -r
+Description: Reverse the sort order.
+Remark: Use with other options (like -t or -S) for reversed time or size sorting.
+
+29. ls -R
+Description: Recursively list directories and their contents.
+Remark: Great for viewing an entire directory tree.
+
+30. ls -s
+Description: Show file size in blocks
+Remark: Useful for checking actual disk usage of files
+
+31. ls -S
+Description: Sort files by size, largest first
+Remark: Perfect for quickly finding large files in a directory.
+
+32. ls -t
+Description: Sort by modification time, newest first.
+Remark: Commonly used to see recently changed files.
+
+33. ls -T
+Description: With -l, don’t truncate long time fields.
+Remark: Shows full timestamp, useful for logging or detailed comparisons.
+
+34. ls -u
+Description: Use last access time for sorting or displaying
+Remark: Good for checking recently accessed files.
+
+35. ls -v
+Description: Natural sort of numbers within names
+Remark: Makes numeric filenames sort intuitively
+
+36. ls -w
+Description: Set output width to N characters.
+Remark: Helps format output for specific screen widths or printing needs.
+
+37. ls -x
+Description: List entries by lines, sorted across rather than down columns.
+Remark: Alternative layout, sometimes easier to scan horizontally.
+
+38. ls -X
+Description: Sort files by extension.
+Remark: Useful when organizing files by type
+
+39. ls -Z
+Description: Show SELinux security context for each file.
+Remark: Crucial in SELinux-enabled systems for managing and troubleshooting security policies.
+
+40. ls -1
+Description: List one file per line.
+Remark: Clean, script-friendly output—especially useful when piping filenames.
