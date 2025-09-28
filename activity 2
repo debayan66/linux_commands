@@ -1,1 +1,47 @@
+Linux commands- tree
 
+Tree understands the following command line switches:
+
+--help
+  Outputs a verbose usage listing.
+
+--version
+  Outputs the version of tree.
+
+1. tree -a
+  All files are printed. By default tree does not print hidden files (those beginning with a dot '.'). In no event does tree print the file system constructs '.' (current directory)
+  and '..' (previous directory).
+
+2. tree -d
+
+  List directories only.
+
+3. tree -f
+
+  Prints the full path prefix for each file.
+
+4. tree -i
+  
+  Makes tree not print the indentation lines, useful when used in conjunction with the -f option.
+
+5. tree -l
+
+  Follows symbolic links if they point to directories, as if they were directories. Symbolic links that will result in recursion are avoided when detected.
+
+6. tree -x
+
+  Stay on the current file-system only. Ala find -xdev.
+
+7. tree -P pattern
+  List only those files that match the wild-card pattern. Note: you must use the -a option to also consider those files beginning with a dot '.' for
+  matching. Valid wildcard operators are '*' (any zero or more characters), '?' (any single character), '[...]' (any single character listed between brackets
+  (optional - (dash) for character range may be used: ex: [A-Z]), and '[^...]' (any single character not listed in brackets) and '|' separates alternate patterns.
+
+8. tree -I pattern
+  Do not list those files that match the wild-card pattern.
+
+9. tree --noreport
+  Omits printing of the file and directory report at the end of the tree listing.
+
+10. tree -p
+  Print the file type and permissions for each file (as per ls -l).
