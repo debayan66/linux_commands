@@ -171,3 +171,31 @@ Remark: Crucial in SELinux-enabled systems for managing and troubleshooting secu
 40. ls -1
 Description: List one file per line.
 Remark: Clean, script-friendly output—especially useful when piping filenames.
+
+
+
+Linux commands- whoami,pwd, cd, cd /,cd .., cd <path>
+1. whoami
+  Purpose: Shows the username of the current user.
+  
+  Example:
+  
+  $ whoami  
+  debayan
+
+2. pwd
+ Purpose: Displays the full path of the current working directory.
+
+  Example:
+  
+  $ pwd  
+  /home/john/Documents  
+
+3. cd
+  Purpose: Changes the current working directory.
+  
+  Usage:
+  
+  cd /path/to/directory
+  cd ..        # Go up one directory
+  cd ~         # Go to the home directory
