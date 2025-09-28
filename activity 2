@@ -45,3 +45,42 @@ Tree understands the following command line switches:
 
 10. tree -p
   Print the file type and permissions for each file (as per ls -l).
+
+----------------------Part 2---------------------
+
+Linux commands- ifconfig, ping, traceroute, nmap, mkdir
+
+1. ping
+
+  Purpose: Checks network connectivity between your computer and another host (e.g., a website or IP).
+  How it works: Sends ICMP echo requests and waits for replies.
+  Example:ping google.com
+  Output: Shows time delay, packet loss, etc.
+
+2. ifconfig (deprecated in some systems)
+
+  Purpose: Displays or configures network interface settings (IP address, MAC address, etc.).
+  Example:ifconfig
+  Note: On modern Linux systems, use ip addr instead .
+
+3. traceroute
+
+  Purpose: Shows the path (hops) that packets take to reach a destination.
+  Example:traceroute google.com
+  Use case: Diagnose where a connection is slowing down or failing.
+
+4. nmap
+
+  Purpose: Scans networks or hosts for open ports and services.
+  Example:nmap 192.168.1.1
+  Use case: Network security auditing, detecting devices.
+
+5. mkdir
+
+  Purpose: Creates a new directory (folder).
+  Example:mkdir new_folder
+  
+  
+  Flags:
+  
+  -p: Create parent directories if they don't exist.
