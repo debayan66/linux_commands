@@ -1,0 +1,117 @@
+●	groups command
+
+1. groups Command
+1.	 What is the groups command?
+The 'groups' command in GNU/Linux and other Unix-like operating systems is a simple user and permission–related command. It prints the names of the groups that a particular user belongs to. Every user on a Linux system is associated with one primary group and may be a member of multiple supplementary (secondary) groups. These groups are used by the operating system to decide which files, directories, and system resources the user is alllowed to access. The 'groups' command gives a quick overview of all those group memberships.
+2.	Why is it used?
+The main purpose of 'groups' is to help users and administrators understand permissions. Because file and directory access in Linux is controlled by user ID (owner), group ID, and others, knowing which groups a user belongs to is essential when:
+  • Troubleshooting why a user canot read or write a particular file.
+  • Verifying whether a user has administrative or special privileges (for example membership of the 'sudo' group).
+  • Managing multi‑user systems where many people share resources and need different access levels.
+  • Checking changes after adding or removing a user from a group using commands like 'usermod' or 'gpasswd'
+
+
+3.	How is it used?
+The syntax is very simple:
+
+ 	groups
+ 	groups [username]
+
+ If you run 'groups' without any argument, it shows the groups of the current logged‑in user. If you provide a username, it prints the group memberships of that specified user. Example:
+
+ 	$ groups
+ 	student adm cdrom sudo plugdev lpadmin sambashare
+
+ 	$ groups root
+ 	root : root
+
+
+4.	 Command output details
+The output is normally a space‑separated list of group names. On some systems, the format is:
+
+ 	username : group1 group2 group3 ...
+
+ Important points about the output:
+  • The first group shown is usually the primary group of the user. This is the group listed in /etc/passwd.
+  • The remaining names are the supplementary groups. They are listed in /etc/group.
+  • If the user does not belong to any supplementary groups, only the primary group is shown.
+  • The command does not show group IDs (numbers); it only shows human‑readable group names.
+
+
+5.	 Option flags for groups
+The 'groups' command is designed to be minimal and does not have many complicated options. On most Linux distributions it is provided by GNU coreutils and supports the following standard options:
+
+  • groups [username]  – Show group memberships for the given user.
+  • groups --help  	– Display a short help text explaining usage.
+  • groups --version   – Show version information about the program.
+
+ There are no additional functional flags such as -a or -r; the program focuses only on displaying existing group memberships in a clear way.
+6.	 History and background of the groups command
+The concept of users and groups originated in the early versions of UNIX in the 1970s at Bell Labs. From the beginning, UNIX used groups as a mechanism to share files between users while preserving security. The 'groups' command was added as a small utility so that users could quickly see their group memberships. In modern GNU/Linux systems, 'groups' is part of the GNU Coreutils package, which collects many of the basic commands such as ls, cp, mv, and rm. Over time its implementation has been rewritten and improved, but the purpose and syntax have stayed almost the same. Because of its simplicity and usefulness, it is available by default on nearly every Unix-like operating system, including Linux distributions, BSD varaints, and macos,
+
+
+
+
+
+●	Automake command
+
+1.	what is automake?
+'automake' is a too l used in software development, especially in large C and C++ projects on Unix-like systems. It automatically generates portable Makefile.in templates from developer‑written Makefile.am files. It is part of the GNU Autotools suite, which also includes autoconf and libtool. The final goal of automake is to make it easier for developers to create build systems that work on many different Unix platforms without hand‑writing complex Makefiles for each environment.
+2.	 Why is automake used?
+Writing Makefiles manually for non‑trivial projects can be difficult and error‑prone. Different systems have different compilers, library locations, and tools. Automake helps in several ways:
+  • Portability: It produces Makefile.in files that follow the GNU Coding Standards and work together with	autoconf to adapt to many platforms.
+  • Productivity: Developers describe their build rules in a shorter, higher‑level Makefile.am format.	Automake expands this into a full, detailed Makefile.in.
+  • Consistency: It enforces common conventions for building libraries, programs, documentation, and test suites.
+  • Maintanance: When the source layout changes (new source files, new directories), updating Makefile.am is	easier than editing large Makefiles by hand.
+
+
+3.	 How is automake used?
+Automake is usually not run directly by end users; it is used by software developers when preparing a project for distribution. A typical simplified workflow is:
+
+   1. The developer writes a configuration script template (configure.ac) for autoconf and a Makefile.am file  	that describes the programs, libraries, and sources.
+   2. The developer runs 'aclocal' to generate aclocal.m4 (optional but common).
+   3. The developer runs 'automake --add-missing' which reads Makefile.am and creates Makefile.in and may also  	install helper scripts.
+   4. The developer runs 'autoconf' to produce the 'configure' script.
+   5. When a user downloads the source code, they run './configure' which converts Makefile.in into a  	system‑specific Makefile.
+   6. Finally, the user runs 'make' (and 'make install') to compile and install the software.
+
+
+4.	 Command output details
+The most important output file produced by automake is:
+
+  • Makefile.in – a portable template of the Makefile used by the 'configure' script.
+
+ In addition, automakers may:
+  • Create or update auxiliary helper scripts such as 'install-sh', 'missing', 'mkinstalldirs', etc.
+  • Print warnings if the Makefile.am file does not follow GNU coding standards or if required macros are missing.
+  • In verbose mode, display messages about each created file.
+
+ The generated Makefile.in contains many detailed rules for compiling source files, linking executables and libraries, handling 'make install', 'make clean', 'make dist', running test suites, and so on.
+5.	 Option flags for automake
+Automake supports a number of useful command‑line options. Some commonly used ones are:
+
+  • automake        	– Process the top‑level Makefile.am in the current directory.
+  • automake --add-missing
+  	Automatically install any standard auxiliary files required by GNU standards (for example COPYING,  	INSTALL, missing, install-sh). This is very common when preparing a new project.
+
+  • automake --copy
+  	When used together with --add-missing, copy auxiliary files instead of creating symbolic links to them.
+
+  • automake --foreign
+  	Relax the strict GNU standard checks, allowing projects that do not completely follow GNU requirements  	(for example, projects that do not provide all the standard documentation files).
+
+  • automake --gnu
+  	The default mode; enforces GNU standards more strictly.
+
+  • automake --help
+  	Display summary of options and usage.
+
+  • automake --version
+  	Print version and copyright information.
+
+
+6.	 History and background of automake
+Automake was originally written by Tom Tromey around 1994 as part of the GNU project. At that time, the free software community needed a consistent and portable build system for the growing number of open‑source projects. Existing Makefiles were often tailored to a single system and difficult to maintain. Automake, combined with autoconf by David MacKenzie and later maintained by many contributors, formed what is now called the GNU Autotools. This suite became extremely popular for building software on Unix-like systems.
+
+ Over the years, automake has been extended to support many extra features such as automatic generation of distribution tarballs ('make dist'), support for test suites, Libtool integration for building shared libraries, and internationalization support. Although newer build systems like CMake and Meson have appeared, automaker remains widely used in many long‑lived open-source projects, especially those that closely follow gnu development traditions.
+
